@@ -1,0 +1,31 @@
+$font : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+
+section{
+    text-align: justify;
+    margin-bottom: 30px;
+    font-family: $font;
+    ol{
+        li{
+            margin-bottom: 30px;
+        }
+    }
+}
+
+.titulo{
+    font-family: $font;
+    font-weight: bold;
+}
+.subtitulo{
+    font-family: $font;
+}
+
+div{
+    .col{
+        text-align: center;
+
+        // .row{
+        // }
+    }
+}
