@@ -1,13 +1,14 @@
 import React from 'react';
-import {Col,Row,Button} from 'reactstrap';
+import {Col} from 'reactstrap';
 import '../../styles/new-topic/AboutTopic.css';
+import Buttons from './Buttons'
 
 export const AboutTopic = ()=>{
 
 
 
     return(
-        <Col sm='12' md={{ size: 6, offset: 3 }}>
+        <Col sm='12' md={{ size: 5, offset: 3 }} className="bodyCol">
             <h3 className="titulo">Sobre os Diálogos</h3>
             <h5 className="subtitulo">Diálogos abertos</h5>
             <section>
@@ -58,14 +59,7 @@ export const AboutTopic = ()=>{
                     </li>
                 </ol>
             </section>
-            <Row xs='2'>
-                <Col>
-                    <Button outline>Cancelar</Button>
-                </Col>
-                <Col>
-                    <Button outline> Continuar</Button>
-                </Col>
-            </Row>
+            <Buttons></Buttons>
         </Col>
     )
 }

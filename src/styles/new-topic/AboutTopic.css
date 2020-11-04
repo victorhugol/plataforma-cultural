@@ -5,7 +5,7 @@ section {
 }
 
 section ol li {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .titulo {
@@ -19,5 +19,9 @@ section ol li {
 
 div .col {
   text-align: center;
+}
+
+div .buttons {
+  margin-bottom: 50px;
 }
 /*# sourceMappingURL=AboutTopic.css.map */

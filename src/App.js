@@ -1,11 +1,10 @@
 import React from 'react'
-import {AboutTopic} from './components/new-topic/AboutTopic.js';
-
+import SetupRouter from './Router';
 
 function App() {
   return (
     <div className="App">
-      <AboutTopic></AboutTopic>
+      <SetupRouter></SetupRouter>
     </div>
   );
 }
