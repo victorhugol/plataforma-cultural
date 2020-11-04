@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card,Row,Col, Input, CardTitle, Button} from 'reactstrap';
+import {Card,Row,Col, Input, Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import '../styles/Sign/SignIn.css';
 
@@ -14,7 +14,7 @@ const SignIn = ()=>{
     return(
         <Row xs='1'>
 
-            <Col md={{size:6,offset:3}}>
+            <Col md={{size:4,offset:4}}>
                 <section>
                     <Card>
                         <h3>Ola Novamente!</h3>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Col,Input,Row} from 'reactstrap';
-import '../../styles/new-topic/AboutTopic.css';
+import '../../styles/topic/AboutTopic.css';
 
 const CreateTopic = (props)=>{
 

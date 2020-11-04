@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col} from 'reactstrap';
-import '../../styles/new-topic/AboutTopic.css';
+import '../../styles/topic/AboutTopic.css';
 import Buttons from './Buttons'
 
 export const AboutTopic = ()=>{
