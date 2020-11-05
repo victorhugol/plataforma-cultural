@@ -5,7 +5,7 @@ import SignIn from './view/SignIn';
 import SignUp from './view/SignUp';
 import RecuperarSenha from './view/RecuperarSenha';
 import Topic from './view/Topic';
-
+import MainPage from './view/MainPage';
 
 const SetupRouter =  ()=>{
 
@@ -13,6 +13,10 @@ const SetupRouter =  ()=>{
     return(
         <Router>
             <Switch>
+                <Route exact path="/">
+                    <MainPage></MainPage>
+                </Route>
+
                 <Route exact path="/newTopic">
                     <NewTopic></NewTopic>
                 </Route>
