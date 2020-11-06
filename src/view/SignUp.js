@@ -1,66 +1,99 @@
-import React from 'react';
-import {Col, Form, FormGroup, Input, Label, Row,} from 'reactstrap';
+import React, {useState,useEffect} from 'react';
+import {Col, Form, FormFeedback, FormGroup, Input, Label, Row,} from 'reactstrap';
 import '../styles/Sign/SignUp.css';
+import BeginSignUp from '../textualComponents/signup-text/BeginSignUp';
+
+
+
+
+
+
+
+
+
 
 
 const SignUp = ()=>{
+
+    const erros = {
+        nome: 'Nome é obrigatório',
+        sobrenome : 'Sobrenome é obrigatório',
+        senha : 'Senha é obrigatória',
+        email : 'Email é obrigatório',
+        confirmaEmail : 'O email de confirmação é obrigatório'
+    }
+    
+    const [nome, setNome] = useState('');
+    const [sobrenome,setSobrenome] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [confirmaEmail,setConfirmaEmail] = useState('');
+    const [touched,setTouched] = useState({
+        nome : false,
+        sobrenome : false,
+        senha : false,
+        email : false,
+        confirmaEmail : false
+    });
+
+
+
+    const handleBlur = (event,field)=>{
+        setTouched(()=>{
+            return {...touched,[field] : true}
+        })
+
+    }
+
+    const validation = (field,campo)=>{
+
+
+        if(touched[field] === true && campo.length === 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
     return(
         <Col md={{size:6,offset:3}}>
-            <div className="inicioCadastro">
-                <h3 className="titulo">Cartografia da Cultura - Campo Grande</h3>
-                <section>
-                    Para o Fórum Municipal de Cultura é muito importante que você, 
-                    sendo classe artística, produtor cultural, instituição ou 
-                    responsável por estabelecimento, que promova arte e cultura 
-                    na cidade, participe desta plataforma. A cartografia da 
-                    cultura é uma maneira de dar voz e visibilidade a todos que 
-                    produzem arte e cultura, sem hierarquias e com transparência. 
-                </section>
-                <ul>
-                    <li>
-                        <h4 className="subtitulo">O cadastro permitirá :</h4>
-                        <ul>
-                            <li><h5 className="subtitulo">Mapa</h5></li>
-                            <li>
-                                Adicionar um pin no mapa (sua localização e 
-                                informações que inserir serão vistos por todos). 
-                                Cada cadastro permitirá que você insira um pin. 
-                            </li>
-                        </ul>
-                        <ul>
-                            <li><h5 className="subtitulo">agenda cultural</h5></li>
-                            <li>
-                                Inserir na agenda os eventos que você irá participar 
-                                ou produzir em Campo Grande. Além de ser mais um 
-                                local de divulgação do seu trabalho, o visitante ao 
-                                acessar a plataforma, poderá visualizar os eventos 
-                                que acontecerão nos próximos dias, reunidos num só lugar. 
-                            </li>
-                        </ul>
-                        <ul>
-                            <li><h5 className="subtitulo">diálogos</h5></li>
-                            <li>
-                                Propor ou participar de debates que acontecem 
-                                online, proposto pelo Fórum Municipal de Cultura 
-                                ou pelos participantes, entre produtores artísticos
-                                e culturais da cidade.
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+                    {`${touched.nome}`}
 
+            <div className="inicioCadastro">
+                <BeginSignUp></BeginSignUp>
                 <Form>
                     <Row xs='2'>
                         <Col>
                             <FormGroup>
                                 <Label>Nome</Label>
-                                <Input placeholder="Nome*"></Input>
+                                <Input 
+                                placeholder="Nome*"
+                                value={nome}
+                                invalid={validation('nome',nome)}
+                                onChange={(e)=>setNome(e.target.value)}
+                                onBlur={(event)=>handleBlur(event,'nome')}
+                                >
+                                
+                                </Input>
+                                <FormFeedback>{erros.nome}</FormFeedback>
+                                
                             </FormGroup>
                         </Col>
+
                         <Col>
                             <FormGroup>
                                 <Label>Sobrenome</Label>
-                                <Input placeholder='Sobrenome*'></Input>
+                                <Input 
+                                placeholder="Sobrenome*"
+                                value={sobrenome}
+                                invalid={validation('sobrenome',sobrenome)}
+                                onChange={(e)=>setSobrenome(e.target.value)}
+                                onBlur={(event)=>handleBlur(event,'sobrenome')}
+                                >
+                                
+                                </Input>
+                                <FormFeedback>{erros.sobrenome}</FormFeedback>
                             </FormGroup>
                         </Col>
                     </Row>
@@ -79,7 +112,6 @@ const SignUp = ()=>{
                         <Label> Confirmar Email</Label>
                         <Input type="email" name="email" placeholder="confirme o email*"></Input>
                     </FormGroup>
-
                 </Form>
 
 
@@ -92,7 +124,7 @@ const SignUp = ()=>{
                     </p>
                 </section>
             </div>
-            
+
         </Col>
     )
 }

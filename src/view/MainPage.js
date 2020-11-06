@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React from 'react';
 import {MapContainer,TileLayer,Marker,Popup} from 'react-leaflet';
 
 const CampoGrande = [-20.443529,-54.647758]
