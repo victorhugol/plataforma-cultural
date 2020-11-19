@@ -1,13 +1,19 @@
-import React from 'react';
-import {Button, Col,Input,Row} from 'reactstrap';
+import React, {useState,useRef} from 'react';
+import {Button, Col,Form,Input,ListGroup,ListGroupItem,Row} from 'reactstrap';
 import '../../styles/topic/AboutTopic.css';
 
 const CreateTopic = (props)=>{
+    const [lista, setLista] = useState([1,2,3]);
+    const itemDialogo = useRef(null)
+    const [listaDialogo, setListaDialogo] = useState([1,2]);
 
     const nextPage = ()=>{
         console.log(props)
     }
 
+    const pushListaDialogo = ()=>{
+        listaDialogo.push(itemDialogo.current.value);
+    }
 
 
     return(
@@ -38,15 +44,25 @@ const CreateTopic = (props)=>{
                         2. Marque as opções que se relacionam ao seu diálogo
                     </p>
                     <Row xs='2'>
-                        <Col>Ola</Col>
-                        <Col>Mundo</Col>
+
+                        <Col>
+                            <ListGroup>
+                                {lista.map((item,key)=>{
+                                    return(
+                                        <Button ref={itemDialogo} onClick={pushListaDialogo}  outline key={key}>
+                                                {item}
+                                        </Button>
+                                    )
+                                })}
+                            </ListGroup>
+                        </Col>
                     </Row>
                 </li>
             </ul>
 
             <Row xs='3'>
                 <Col>
-                    <Button outline size="sm"> voltar</Button>
+                    <Button outline size="sm"> VOLTAR</Button>
                 </Col>
                 <Col>
                     <Button outline size='sm'> CANCELAR</Button>
